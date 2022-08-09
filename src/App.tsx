@@ -1,12 +1,8 @@
+import HomePage from "./pages/HomePage";
 import "./styles/global.css";
 
 const App = () => {
-  return (
-    <div>
-      <p className="text-4xl">Bem vindo,</p>
-      <p></p>
-    </div>
-  );
+  return <HomePage />;
 };
 
 export default App;
