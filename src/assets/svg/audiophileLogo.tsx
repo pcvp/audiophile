@@ -1,4 +1,7 @@
-function AudiophileLogo() {
+interface AudiophileLogoProps {
+  className?: string;
+}
+const AudiophileLogo = (props: AudiophileLogoProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,6 +9,7 @@ function AudiophileLogo() {
       height="25"
       fill="none"
       viewBox="0 0 143 25"
+      className={props.className}
     >
       <path
         fill="#fff"
@@ -15,6 +19,6 @@ function AudiophileLogo() {
       ></path>
     </svg>
   );
-}
+};
 
 export default AudiophileLogo;

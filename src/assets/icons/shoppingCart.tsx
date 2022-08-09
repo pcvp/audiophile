@@ -1,4 +1,8 @@
-function shoppgingCart() {
+interface shoppgingCartIconProps {
+  className?: string;
+}
+
+function shoppgingCartIcon(props: shoppgingCartIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,6 +10,7 @@ function shoppgingCart() {
       height="20"
       fill="none"
       viewBox="0 0 24 20"
+      className={props.className}
     >
       <path
         fill="#fff"
@@ -17,4 +22,4 @@ function shoppgingCart() {
   );
 }
 
-export default shoppgingCart;
+export default shoppgingCartIcon;
