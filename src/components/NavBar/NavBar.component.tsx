@@ -3,6 +3,7 @@ import ShoppgingCartIcon from "../../assets/icons/shoppingCart";
 import MenuHamburgerIcon from "../../assets/icons/menuHamburger";
 import { useState } from "react";
 import classNames from "classnames";
+import { List, ShoppingCart, X } from "phosphor-react";
 
 const NavBar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -19,19 +20,59 @@ const NavBar = () => {
         }
       )}
     >
-      <div className="flex items-start justify-between flex-grow md:justify-start lg:justify-between">
-        <MenuHamburgerIcon className="lg:hidden" onClick={handleNav} />
-        <ul className="hidden text-white gap-10 font-bold lg:flex lg:order-2">
+      <div
+        className={classNames(
+          "flex items-start flex-grow md:justify-start lg:justify-between",
+          {
+            "justify-between": !isNavOpen,
+            "flex-col": isNavOpen,
+          }
+        )}
+      >
+        <List
+          size={25}
+          className={classNames("text-white lg:hidden", {
+            hidden: isNavOpen,
+          })}
+          onClick={handleNav}
+        />
+        <X
+          size={25}
+          onClick={handleNav}
+          className={classNames("text-white", {
+            hidden: !isNavOpen,
+          })}
+        />
+        <ul
+          className={classNames(
+            "text-white gap-10 font-bold lg:flex lg:order-2",
+            {
+              "flex flex-col mt-10": isNavOpen,
+              hidden: !isNavOpen,
+            }
+          )}
+        >
           <li>Home</li>
           <li>Headphones</li>
           <li>Speakers</li>
           <li>Earphones</li>
         </ul>
 
-        <AudiophileLogo className="md:ml-10 lg:ml-0 lg:order-1" />
+        <AudiophileLogo
+          className={classNames("md:ml-10 lg:ml-0 lg:order-1", {
+            hidden: isNavOpen,
+          })}
+        />
       </div>
-      <div className="flex flex-grow justify-end items-start lg:order-3">
-        <ShoppgingCartIcon />
+      <div
+        className={classNames(
+          "flex flex-grow justify-end items-start lg:order-3",
+          {
+            hidden: isNavOpen,
+          }
+        )}
+      >
+        <ShoppingCart size={25} className="text-white" />
       </div>
     </nav>
   );
