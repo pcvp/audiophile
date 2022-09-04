@@ -1,0 +1,10 @@
+query categories {
+  categories {
+    id
+    name
+    slug
+    image {
+      url
+    }
+  }
+}

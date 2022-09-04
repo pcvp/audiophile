@@ -2,10 +2,13 @@ import AudiophileLogo from "../../assets/svg/audiophileLogo";
 import { useState } from "react";
 import classNames from "classnames";
 import { List, ShoppingCart, X } from "phosphor-react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import { useNavbarItemsQuery } from "./../../graphql/generated";
 
 const NavBar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const { data } = useNavbarItemsQuery();
 
   function handleNav() {
     setIsNavOpen((prev) => !prev);
@@ -17,7 +20,7 @@ const NavBar = () => {
           className={classNames(
             "container flex justify-between mx-auto py-10 px-6 border-b-2 border-white border-opacity-20 lg:px-0",
             {
-              "w-screen h-screen": isNavOpen,
+              "w-screen h-screen lg:w-auto lg:h-auto": isNavOpen,
             }
           )}
         >
@@ -26,7 +29,7 @@ const NavBar = () => {
               "flex items-start flex-grow md:justify-start lg:justify-between",
               {
                 "justify-between": !isNavOpen,
-                "flex-col": isNavOpen,
+                "flex-col lg:flex-row lg:items-center": isNavOpen,
               }
             )}
           >
@@ -42,26 +45,32 @@ const NavBar = () => {
               onClick={handleNav}
               className={classNames("text-white", {
                 hidden: !isNavOpen,
+                "lg:hidden": isNavOpen,
               })}
             />
             <ul
               className={classNames(
                 "text-white gap-10 font-bold lg:flex lg:order-2",
                 {
-                  "flex flex-col mt-10": isNavOpen,
+                  "flex flex-col mt-10 lg:flex-row lg:mt-0": isNavOpen,
                   hidden: !isNavOpen,
                 }
               )}
             >
-              <li>Home</li>
-              <li>Headphones</li>
-              <li>Speakers</li>
-              <li>Earphones</li>
+              {data?.navbarItems.map((item) => {
+                return (
+                  <li key={item.id}>
+                    <Link to={item.redirectTo ?? ""} onClick={handleNav}>
+                      {item.displayText}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
 
             <AudiophileLogo
               className={classNames("md:ml-10 lg:ml-0 lg:order-1", {
-                hidden: isNavOpen,
+                "hidden lg:block": isNavOpen,
               })}
             />
           </div>
@@ -69,7 +78,7 @@ const NavBar = () => {
             className={classNames(
               "flex flex-grow justify-end items-start lg:order-3",
               {
-                hidden: isNavOpen,
+                "hidden lg:flex": isNavOpen,
               }
             )}
           >
