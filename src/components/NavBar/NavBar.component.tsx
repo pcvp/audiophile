@@ -60,7 +60,11 @@ const NavBar = () => {
               {data?.navbarItems.map((item) => {
                 return (
                   <li key={item.id}>
-                    <Link to={item.redirectTo ?? ""} onClick={handleNav}>
+                    <Link
+                      to={item.redirectTo ?? ""}
+                      onClick={handleNav}
+                      className="hover:text-primary-900 transition-all"
+                    >
                       {item.displayText}
                     </Link>
                   </li>
@@ -82,7 +86,12 @@ const NavBar = () => {
               }
             )}
           >
-            <ShoppingCart size={25} className="text-white" />
+            <Link to="/cart">
+              <ShoppingCart
+                size={25}
+                className="text-white hover:text-primary-900 transition-all"
+              />
+            </Link>
           </div>
         </nav>
       </div>

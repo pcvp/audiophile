@@ -9,7 +9,7 @@ const getButtonClassNames = (props: ButtonProps): string => {
   return classNames(
     "w-auto flex justify-center items-center p-3 tracking-wide uppercase text-white cursor-pointer transition ease-in duration-500 ",
     {
-      "bg-primary-900": props.kind == "raised",
+      "bg-primary-900 hover:bg-primary-500": props.kind == "raised",
       "border border-black text-black": props.kind == "outline",
     }
   );
