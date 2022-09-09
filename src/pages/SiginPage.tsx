@@ -68,7 +68,7 @@ const SignInPage = () => {
                 </div>
               </div>
               <div>
-                <Button kind="raised" type="submit">
+                <Button kind="raised" type="submit" appearance="primary">
                   Sign in
                 </Button>
               </div>
@@ -78,7 +78,12 @@ const SignInPage = () => {
                 <span className="h-px w-16 bg-gray-300"></span>
               </div>
               <div className="flex justify-center gap-5 w-full ">
-                <Button kind="outline" type="submit" onClick={logGoogleUser}>
+                <Button
+                  kind="outline"
+                  appearance="primary"
+                  type="submit"
+                  onClick={logGoogleUser}
+                >
                   <svg
                     className="w-4 mr-2"
                     viewBox="0 0 24 24"

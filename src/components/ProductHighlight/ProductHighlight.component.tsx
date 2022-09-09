@@ -35,7 +35,9 @@ const ProductHighlight = (props: ProductHighlightProps) => {
       </p>
 
       <Link to={"produtct/" + props.slug}>
-        <Button kind="raised">See Product</Button>
+        <Button kind="raised" appearance="primary">
+          See Product
+        </Button>
       </Link>
     </section>
   );
