@@ -1,0 +1,5 @@
+query textContents($name: String!) {
+  textContents(where: { name: $name }) {
+    value
+  }
+}

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import BringTheBestAudioGear from "../components/BringTheBestAudioGear/BringTheBestAudioGear";
 import Button from "../components/Button/Button";
 import Category from "../components/Category/category.component";
+import Footer from "../components/Footer/Footer";
 import ProductHighlight from "../components/ProductHighlight/ProductHighlight.component";
 import {
   useCategoriesQuery,
@@ -71,7 +73,12 @@ const HomePage = () => {
             </Link>
           </div>
         </section>
+
+        <section className="my-20">
+          <BringTheBestAudioGear />
+        </section>
       </main>
+      <Footer />
     </section>
   );
 };
