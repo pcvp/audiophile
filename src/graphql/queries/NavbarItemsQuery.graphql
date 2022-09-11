@@ -1,0 +1,8 @@
+query NavbarItems {
+  navbarItems(orderBy: order_ASC) {
+    id
+    displayText
+    redirectTo
+    order
+  }
+}

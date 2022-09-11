@@ -6,11 +6,18 @@ module.exports = {
   },
   theme: {
     extend: {
+      backgroundPosition: {
+        "right-bottom": "right bottom",
+      },
       colors: {
-        primary: "#D87D4A",
+        primary: {
+          500: "#FBAF85",
+          900: "#D87D4A",
+        },
         gray: {
           100: "#979797",
           200: "#F1F1F1",
+          500: "#4C4C4C",
         },
       },
     },

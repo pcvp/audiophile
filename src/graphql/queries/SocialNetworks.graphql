@@ -1,0 +1,10 @@
+query SocialNetworks {
+  socialNetworks {
+    id
+    name
+    redirectTo
+    icon {
+      url
+    }
+  }
+}

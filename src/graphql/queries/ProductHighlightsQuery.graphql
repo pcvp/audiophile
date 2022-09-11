@@ -1,0 +1,16 @@
+query ProductHighlights {
+  productHighlights(where: { isActive: true }) {
+    id
+    order
+    product {
+      id
+      name
+      slug
+      smallDescription
+      showNewProductTag
+    }
+    image {
+      url
+    }
+  }
+}
